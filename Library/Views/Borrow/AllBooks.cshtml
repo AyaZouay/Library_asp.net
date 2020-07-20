@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Library.Models.Book>
+
+@{
+    ViewBag.Title = "All books";
+}
+
+<h2>@ViewBag.Title</h2>
+<ul>
+    @foreach (var book in Model)
+    {
+        <li class="list-group-item d-flex justify-content-between align-items-center" style="width:50%">
+
+            @Html.ActionLink(book.Title, "ShowBook", new { id = book.BookID })
+        </li>
+    }
+</ul>
+

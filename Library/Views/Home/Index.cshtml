@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Library.Models.New>
+@{
+    ViewBag.Title = "News ";
+}
+
+<div class="jumbotron">
+    <h1>Books for All</h1>
+    <p class="lead"> We provide a large collection of books. You can borrow from us! </p>
+    <p>
+
+        <a class="btn btn-primary btn-lg" href="/Borrow">Borrow Now &raquo;</a>
+
+    </p>
+</div>
+
+<div class="container">
+
+    <h2>@ViewBag.Title</h2>
+
+    @if (Model.Count() != 0)
+    {
+
+        foreach (var i in Model)
+        {
+            <div class="well">
+                <div class="media">
+                    <a class="pull-left">
+                        <img class="media-object" src="~/Content/Images/news.png">
+                    </a>
+                    <div class="media-body">
+                        <h4 class="media-heading">@i.Title</h4>
+                        <p class="text-right">By admin</p>
+                        <p>
+                            @i.Description
+                        </p>
+                       
+
+                    </div>
+                </div>
+            </div>
+
+        }
+    }
+</div>
+
+
+
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>View Books : </h2>
+        <p>
+
+        </p>
+        <p><a class="btn btn-default" href="/Books">Find a book  &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>More News : </h2>
+        <p></p>
+        <p><a class="btn btn-default" href="/News"> Latest News &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Lend books</h2>
+        <p></p>
+        <p><a class="btn btn-default" href="/Borrow">Borrow &raquo;</a></p>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+﻿@model Library.Models.Book
+
+@{
+                /**/
+
+                ViewBag.Title = "Show Book";
+}
+
+<h2>ShowBook</h2>
+
+
+<h2>@Model.Title</h2>
+<h3>@Model.Author</h3>
+<p>
+
+   
+
+</p>
+<div id="item-details">
+    <p>
+        <em>Category:</em>
+        @Html.ActionLink(@Model.Category.Name, "Category", new { category = Model.Category.Name })
+
+    </p>
+   
+    <p>
+
+
+    </p>
+
+    <p>
+
+        @Html.ActionLink("Add to cart", "Lend", "Cart", new { id = Model.BookID }, new { @class = "btn btn-primary btn-large" })
+    </p>
+
+
+
+</div>
+
+

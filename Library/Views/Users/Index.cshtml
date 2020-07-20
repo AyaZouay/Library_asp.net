@@ -1,0 +1,14 @@
+﻿@model IEnumerable<Microsoft.AspNet.Identity.EntityFramework.IdentityUser>
+@{
+    ViewBag.Title = "Users management";
+}
+<ul>
+    @foreach (var item in Model)
+    {
+    <li>
+        Email : @Html.DisplayFor(modelItem => item.Email)
+        @Html.ActionLink("Delete", "Delete", new { email = item.Email })
+    </li>
+
+    }
+    </ul>

@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Library.Models.Category>
+
+@{
+    ViewBag.Title = " by category";
+}
+<h2>@ViewBag.Title</h2>
+<h2>@Html.ActionLink("All categories", "AllBooks")</h2>
+
+<ul class="list-group">
+
+
+
+    @foreach (var category in Model)
+    {
+
+        <li class="list-group-item d-flex justify-content-between align-items-center" style="width:50%">
+            @Html.ActionLink(category.Name, "Category", new { category = category.Name })
+            
+        </li>
+    }
+
+
+</ul>

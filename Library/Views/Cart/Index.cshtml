@@ -1,0 +1,65 @@
+﻿@using Library.Models;
+
+@{
+    ViewBag.Title = "Borrow Cart ";
+}
+
+<h2>@ViewBag.Title</h2>
+@using (Html.BeginForm("UpdateCart", "Cart", FormMethod.Post))
+{
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+
+
+                <th scope="col">Name</th>
+
+
+                <th scope="col">Quantity </th>
+
+            </tr>
+        </thead>
+        @if (Session["cart"] != null)
+        {
+            foreach (Item item in (List<Item>)Session["cart"])
+            {
+        <tr>
+
+
+            <td>@Html.ActionLink(item.Book.Title, "ShowBooks", "Borrow", new { id = item.Book.BookID }, null)</td>
+
+            <td><input type="number" name="quantity" value=@item.Quantity min="0" max="1000" step="1" /> </td>
+
+
+
+            <td> <input type="submit" value="Update Quantity" class="btn btn-primary btn-sm" />  </td>
+            
+        </tr>
+            }
+
+
+        }
+
+        <tfoot>
+            <tr>
+                <td colspan="8">
+                    <div class="text-right">
+
+                        @Html.ActionLink("View Cart", "Index", "Cart", new { @class = "btn btn-primary btn-large" })
+
+
+                    </div>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+}
+    <div class="text-center">
+
+        <p><a class="btn btn-default" href="/Borrow">Borrow More &raquo;</a></p>
+
+
+    </div>
+<br>
+
+
